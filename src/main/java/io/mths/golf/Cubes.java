@@ -36,9 +36,9 @@ public interface Cubes {
                                     | x == vertex2 & index < vertex5
                                     | x == width - vertex1 & index > vertex4
                                     ? "│"
-                                    : vertex1 + y * vertex2 - vertex1 / width * vertex2 == index
-                                        | vertex2 + y * vertex2 == index & index < vertex4
-                                        | vertex5 + y * vertex2 - vertex5 / width * vertex2 == index
+                                    : vertex1 + (y*= vertex2) - vertex1 / width * vertex2 == index
+                                        | vertex2 + y == index & index < vertex4
+                                        | vertex5 + y - vertex5 / width * vertex2 == index
                                         ? "╱"
                                         : index > vertex1 & index < vertex2
                                             | index > vertex3 & index < vertex4
