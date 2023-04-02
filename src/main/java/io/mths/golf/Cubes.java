@@ -21,23 +21,23 @@ public interface Cubes {
                 int x = index % width,
                         y = index / width;
 
-                result += (index == vertex1
-                        || index == vertex2
-                        || index == vertex3
-                        || index == vertex4
-                        || index == vertex5
-                        || index == vertex6
-                        || index == vertex7
-                ) ? "█" : x == 0
-                        ? "\n" : x == 1 && index > vertex3
-                        || x == width - 1 && index < vertex5
-                        || x == width - vertex1 && index > vertex4
-                        ? "│" : vertex1 + (y - vertex1 / width) * (width - 1) == index
-                        || vertex2 + (y - vertex2 / width) * (width - 1) == index && index < vertex4
-                        || vertex5 + (y - vertex5 / width) * (width - 1) == index
-                        ? "╱" : index > vertex1 && index < vertex2
-                        || index > vertex3 && index < vertex4
-                        || index > vertex6
+                result += index == vertex1
+                        | index == vertex2
+                        | index == vertex3
+                        | index == vertex4
+                        | index == vertex5
+                        | index == vertex6
+                        | index == vertex7
+                 ? "█" : x < 1
+                        ? "\n" : x == 1 & index > vertex3
+                        | x == vertex2 & index < vertex5
+                        | x == width - vertex1 & index > vertex4
+                        ? "│" : vertex1 + (y - vertex1 / width) * vertex2 == index
+                        | vertex2 + (y - vertex2 / width) * vertex2 == index & index < vertex4
+                        | vertex5 + (y - vertex5 / width) * vertex2 == index
+                        ? "╱" : index > vertex1 & index < vertex2
+                        | index > vertex3 & index < vertex4
+                        | index > vertex6
                         ? "─" : " ";
             }
             result += "\n\n";
