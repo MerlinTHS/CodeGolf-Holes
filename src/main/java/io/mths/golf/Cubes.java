@@ -6,8 +6,7 @@ public interface Cubes {
         for (int index = 1, cube = 1; cube < 8; ++index) {
             // the cubePlusOne variable was replaced by ++cube -> cube --
             int width = 4 + 5 * cube,
-                    height = 3 + 3 * cube,
-                    size = width * height,
+                    size = width * (3 + 3 * cube),
                     vertex1 = 2 + cube,
                     vertex2 = width - 1,
                     vertex3 = ++cube * width + 1,
@@ -37,9 +36,9 @@ public interface Cubes {
                                     | x == vertex2 & index < vertex5
                                     | x == width - vertex1 & index > vertex4
                                     ? "│"
-                                    : vertex1 + (y - vertex1 / width) * vertex2 == index
-                                        | vertex2 + (y - vertex2 / width) * vertex2 == index & index < vertex4
-                                        | vertex5 + (y - vertex5 / width) * vertex2 == index
+                                    : vertex1 + y * vertex2 - vertex1 / width * vertex2 == index
+                                        | vertex2 + y * vertex2 == index & index < vertex4
+                                        | vertex5 + y * vertex2 - vertex5 / width * vertex2 == index
                                         ? "╱"
                                         : index > vertex1 & index < vertex2
                                             | index > vertex3 & index < vertex4
