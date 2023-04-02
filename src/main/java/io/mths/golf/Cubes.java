@@ -1,7 +1,12 @@
 package io.mths.golf;
 
 /**
- * interface ${static void main(String[]a){for(int b=1,c=1;c<8;++b){int d=2+c,e=5*++c-1,f=e*3*c--,g=e-1,h=f/3+1,i=d*e-d,j=f-h,k=f-g,l=f-d,m=b%e,n=b/e*g;c+=b/l;System.out.print(b==l&&(b=0)<1?"█\n\n":b==d|b==g|b==h|b==i|b==j|b==k?"█":m<1?"\n":m<2&b>h|m==g&b<j|m==e-d&b>i?"│":d+n-d/e*g==b|g+n==b&b<i|j+n-j/e*g==b?"╱":b>d&b<g|b>h&b<i|b>k?"─":" ");}}}
+ * interface ${static void main(String[]a){for(int b=1,c=1;c<8;++b){
+ * int d=2+c,e=5*++c-1,f=e*3*c--,g=e-1,h=f/3+1,i=d*e-d,j=f-h,k=f-g,l
+ * =f-d,m=b%e,n=b/e*g;c+=b/l;System.out.print(b==l&&(b=0)<1?"█\n\n":
+ * b==d|b==g|b==h|b==i|b==j|b==k?"█":m<1?"\n":m<2&b>h|m==g&b<j|m==e-
+ * d&b>i?"│":d+n-d/e*g==b|g+n==b&b<i|j+n-j/e*g==b?"╱":b>d&b<g|b>h&b<
+ * i|b>k?"─":" ");}}}
  */
 public interface Cubes {
     static void main(String[] args) {
