@@ -5,8 +5,8 @@ package io.mths.golf;
  * int d=2+c,e=5*++c-1,f=e*3*c--,g=e-1,h=f/3+1,i=d*e-d,j=f-h,k=++
  * b%e,l=b/e*g;System.out.print(b==d|b==g|b==h|b==i|b==j|b==f-g||
  * b==f-d&&(b=-2)<++c?"█":k<1?"\n":k<2&b>h|k==g&b<j|k==e-d&b>i?"│
- * ":d+l-d/e*g==b|g+l==b&b<i|j+l-j/e*g==b?"╱":b>d&b<g|b>h&b<i|b>f
- * -g?"─":" ");}}}
+ * ":g+l==b&b<i|l+d==b|j+l-j/e*g==b?"╱":b>d&b<g|b>h&b<i|b>f-g?"─"
+ * :" ");}}}
  */
 interface Cubes {
     static void main(String[] args) {
@@ -36,8 +36,8 @@ interface Cubes {
                                         | x == vertex2 & index < vertex5
                                         | x == width - vertex1 & index > vertex4
                                         ? "│"
-                                        : vertex1 + y - vertex1 / width * vertex2 == index
-                                            | vertex2 + y == index & index < vertex4
+                                        : y + vertex2 == index & index < vertex4
+                                            | y + vertex1 == index
                                             | vertex5 + y - vertex5 / width * vertex2 == index
                                         ? "╱"
                                         : index > vertex1 & index < vertex2
