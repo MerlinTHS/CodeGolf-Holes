@@ -2,11 +2,11 @@ package io.mths.golf;
 
 /**
  * interface ${static void main(String[]a){for(int b=0,c=1;c<8;){
- * int d=2+c,e=5*++c-1,f=e*3*c--,g=e-1,h=f/3+1,i=d*e-d,j=f-h,l=f-
- * d,m=++b%e,n=b/e*g;c+=b/l;System.out.print(b==d|b==g|b==h|b==i|
- * b==j|b==f-g||b==l&&(b=-2)<1?"█":m<1?"\n":m<2&b>h|m==g&b<j|m==e
- * -d&b>i?"│":d+n-d/e*g==b|g+n==b&b<i|j+n-j/e*g==b?"╱":b>d&b<g|b>
- * h&b<i|b>f-g?"─":" ");}}}
+ * int d=2+c,e=5*++c-1,f=e*3*c--,g=e-1,h=f/3+1,i=d*e-d,j=f-h,k=++
+ * b%e,l=b/e*g;System.out.print(b==d|b==g|b==h|b==i|b==j|b==f-g||
+ * b==f-d&&(b=-2)<++c?"█":k<1?"\n":k<2&b>h|k==g&b<j|k==e-d&b>i?"│
+ * ":d+l-d/e*g==b|g+l==b&b<i|j+l-j/e*g==b?"╱":b>d&b<g|b>h&b<i|b>f
+ * -g?"─":" ");}}}
  */
 interface Cubes {
     static void main(String[] args) {
@@ -18,12 +18,9 @@ interface Cubes {
                     vertex3 = size / 3 + 1,
                     vertex4 = vertex1 * width - vertex1,
                     vertex5 = size - vertex3,
-                    vertex7 = size - vertex1,
                     x = ++index % width,
                     y = index / width * vertex2;
 
-            // If the index is at the last vertex, increment cube.
-            cube += index / vertex7;
             System.out.print(
                             index == vertex1
                             | index == vertex2
@@ -31,7 +28,7 @@ interface Cubes {
                             | index == vertex4
                             | index == vertex5
                             | index == size - vertex2
-                            || index == vertex7 && (index = -2) < 1 // ++i < ++i (7) instead of (i=-2) < 1 (8)?
+                            || index == size - vertex1 && (index = -2) < ++cube
                                 ? "█"
                                 : x < 1
                                     ? "\n"
